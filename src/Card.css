@@ -1,0 +1,64 @@
+.card-item{
+    width: 20vw;
+    height: auto;
+    padding: 2vh 5vw 0vh 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+    border-radius: 10px;
+    transition: scale 300ms linear;
+
+    .img{
+        width: 18vw;
+        height: 20vh;
+        margin-bottom: 2vh;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .prop{
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+        background-color: blueviolet;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        
+        h3{
+            font-size: 1.5em;
+            margin: 2vh 0vw 1vh 0vw;
+        }
+
+        p{
+            font-size: 0.9em;
+            margin: 1vh 0vw;
+
+            span{
+                margin-top: 2px;
+            }
+        }
+
+        button{
+            width: 10vw;
+            height: 4vh;
+            cursor: pointer;
+            border: 1px solid white;
+            border-radius: 10px;
+            color: white;
+            background-color: transparent;
+            margin: 1vh 0vw 5vh 0vw;
+        }
+    }
+
+    &:hover{
+        scale: 1.1;
+    }
+}

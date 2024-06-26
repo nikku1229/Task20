@@ -1,0 +1,46 @@
+header{
+  width: 100vw;
+  height: 10vh;
+  background-color: lightslategrey;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 1vh 2vw;
+
+  h1{
+    width: 20vw;
+  }
+
+  nav ul{
+    display: flex;
+    gap: 5vw;
+  }
+}
+
+section{
+  display: flex;
+
+  .left,.right{
+    height: 90vh;
+    padding: 5vh 5vw;
+  }
+
+  .left{
+    width: 60vw;
+    overflow: scroll;
+
+    .card{
+      width: 50vw;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5vw;
+    }
+  }
+
+  .right{
+    width: 40vw;
+    overflow: scroll;
+    padding-left: 0vw;
+  }
+}
