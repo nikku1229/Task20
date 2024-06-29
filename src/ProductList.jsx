@@ -3,6 +3,7 @@ import "./list.css";
 import SmallList from "./SmallList";
 
 function List({ listItems,increaseQty,decreaseQty,totalPrice }){
+
   return (
 
     <>
