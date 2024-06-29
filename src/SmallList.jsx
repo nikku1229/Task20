@@ -1,7 +1,12 @@
-import { useState } from "react";
-function SmallList({item,index,increaseQty,decreaseQty}) {
-    let [itemQtys, setItemQtys] = useState(1);
-  
+import React from "react";
+function SmallList({item,increaseQty,decreaseQty}) {
+  const handleIncrease = () => {
+    increaseQty(item,item.price);
+  };
+
+  const handleDecrease = () => {
+    decreaseQty(item, item.price);
+  };
   
     return (
       <li>
@@ -15,11 +20,11 @@ function SmallList({item,index,increaseQty,decreaseQty}) {
           </p>
         </div>
         <div className="btns">
-          <button className="remove-btn" onClick={() => decreaseQty(index,itemQtys,setItemQtys,item.price)}>
+          <button className="remove-btn" onClick={handleDecrease}>
             <ion-icon name="remove-outline"></ion-icon>
           </button>
-          <span>{itemQtys}</span>
-          <button className="add-btn" onClick={() => increaseQty(itemQtys,setItemQtys,item.price)}>
+          <span>{item.qty}</span>
+          <button className="add-btn" onClick={handleIncrease}>
             <ion-icon name="add-outline"></ion-icon>
           </button>
         </div>
@@ -27,4 +32,4 @@ function SmallList({item,index,increaseQty,decreaseQty}) {
     );
   }
 
-  export default SmallList
+  export default SmallList;
