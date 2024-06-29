@@ -42,25 +42,34 @@ function App() {
   const [totalPrice,setTotalPrice] = useState(0);
 
   function addItem(index,price){
-    setListItems([...listItems,productList[index]]);
-    setTotalPrice(totalPrice+ parseInt(price));
+    const newItem = { ...productList[index], qty: 1 };
+    setListItems(prevListItems => [...prevListItems, newItem]);
+    setTotalPrice(prevTotalPrice => prevTotalPrice + parseInt(price));
   }
 
-  function increaseQty(itemQtys,setItemQtys,price) {
-    setItemQtys(++itemQtys);
-    setTotalPrice(totalPrice + parseInt(price))
+  function increaseQty(item, price) {
+    const updatedItems = listItems.map(i => {
+      if (i === item) {
+        return { ...i, qty: i.qty + 1 };
+      }
+      return i;
+    });
+    setListItems(updatedItems);
+    setTotalPrice(prevTotalPrice => prevTotalPrice + parseInt(price));
   }
 
-  function decreaseQty(index,itemQtys,setItemQtys,price) {
-    if (itemQtys > 1) {
-      setItemQtys(--itemQtys);
+  function decreaseQty(item,price) {
+    const updatedItems = [...listItems];
+    const index = updatedItems.findIndex(i => i === item);
+    if (updatedItems[index].qty > 1) {
+      updatedItems[index].qty--;
     } else {
-      let newList = [...listItems];
-      newList.splice(index, 1);
-      setListItems(newList);
+      updatedItems.splice(index, 1);
     }
-    setTotalPrice(totalPrice - parseInt(price));
-  }
+
+    setListItems(updatedItems);
+    setTotalPrice(prevTotalPrice => prevTotalPrice - parseInt(price));
+}
   
 
   return(
@@ -97,4 +106,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
